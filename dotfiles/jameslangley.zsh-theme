@@ -1,6 +1,6 @@
 # Based on robbyrussel.zsh-theme
 PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
-PROMPT+="%{$reset_color%}%m"
+PROMPT+="%{$reset_color%} %m"
 PROMPT+=' %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
 
 RPROMPT="%*"
