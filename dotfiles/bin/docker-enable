@@ -1,5 +1,9 @@
 #!/usr/bin/bash
 
+# A utility script to enable and disable docker including autostart.
+# This allows control over when docker daemon runtime resources are allocated.
+
+
 function printUsage {
     echo -e "\ndocker-enable: enable or disable docker (including autostart)";
     echo "Usage: docker-enable [on|yes]|[off|no]";
