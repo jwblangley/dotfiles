@@ -111,4 +111,4 @@ alias t="tmux"
 # Add confirmation message to rm.
 alias rm="rm -i"
 # Run full apt updating procedure and cleanup
-alias apt-full="sudo apt update && sudo apt upgrade && sudo apt autoremove && sudo apt autoclean"
+alias apt-full="sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean -y"

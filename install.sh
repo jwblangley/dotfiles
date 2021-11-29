@@ -4,7 +4,7 @@
 set -e
 
 # Prerequisites
-sudo apt update
+sudo apt update -y
 which git || sudo apt install -y git
 which curl || sudo apt install -y curl
 which wget || sudo apt install -y wget
