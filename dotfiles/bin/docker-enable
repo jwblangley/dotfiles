@@ -1,0 +1,46 @@
+#!/usr/bin/bash
+
+function printUsage {
+    echo -e "\ndocker-enable: enable or disable docker (including autostart)";
+    echo "Usage: docker-enable [on|yes]|[off|no]";
+}
+
+if [ "$#" != "1" ];
+then
+    echo "Invalid number of args"
+    printUsage;
+    exit 1;
+fi
+
+if [ $(which docker) ];
+then
+    if [ $1 = "on" ] || [ $1 = "yes" ];
+    then
+        echo "Enabling docker";
+        sudo systemctl start docker.service
+        sudo systemctl enable docker.service;
+        sudo systemctl start docker.socket
+        sudo systemctl enable docker.socket;
+        sudo chmod 666 /var/run/docker.sock;
+        sudo systemctl start containerd.service
+        sudo systemctl enable containerd.service;
+        echo "Done"
+    elif [ $1 = "off" ] || [ $1 = "no" ];
+    then
+        echo "Disabling docker";
+        sudo systemctl stop docker.service
+        sudo systemctl disable docker.service;
+        sudo systemctl stop docker.socket
+        sudo systemctl disable docker.socket;
+        sudo systemctl stop containerd.service
+        sudo systemctl disable containerd.service;
+        echo "Done"
+    else
+        echo "Invalid argument: $1";
+        printUsage;
+        exit 1;
+    fi
+else
+    echo "docker not installed";
+    exit 2;
+fi
