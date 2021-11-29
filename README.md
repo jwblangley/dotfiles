@@ -26,7 +26,7 @@ For more complicated changes, modifying the setup script may be required.
 To promote development without risk of damaging your personal setup, a [`Dockerfile`](Dockerfile) is included for a sandbox environment.
 This Dockerfile is designed to replicate the process of running the installation script for the first time.
 For example, unlike many docker images, the default user is non-root and is password-protected.
-Furthermore, the installation script is *not* **fully** automated since passwords and confirmations are required.
+Furthermore, the installation script is *not* **fully** automated since passwords and confirmations are required and the installation script's progress is not cached.
 The Dockerfile replicates this experience.
 The default user within the container is `d_user` and the default password is `password`. These can be changed with docker build args.
 

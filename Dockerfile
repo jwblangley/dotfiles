@@ -27,3 +27,11 @@ USER $USERNAME
 
 # Switch to d_user's home directory
 WORKDIR /home/$USERNAME
+
+# Copy contents
+COPY . /home/$USERNAME/.dotfiles
+
+CMD cd .dotfiles && \
+    ./install.sh && \
+    cd /home/$USERNAME && \
+    zsh
