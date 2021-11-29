@@ -52,5 +52,13 @@ ln -sf $HOME/.dotfiles/dotfiles/micro_settings.json $HOME/.config/micro/settings
 # Install xclip
 which xclip || sudo apt install -y xclip
 
+# Install vscode configurations N.B: vscode installed separately
+ls $HOME/.config/Code/User || mkdir -p $HOME/.config/Code/User
+ln -sf $HOME/.dotfiles/dotfiles/vscode_keybindings.json $HOME/.config/Code/User/keybindings.json
+ln -sf $HOME/.dotfiles/dotfiles/vscode_settings.json $HOME/.config/Code/User/settings.json
+
 # Install my custom scripts
-ln -sf $HOME/.dotfiles/dotfiles/bin $HOME/.bin
+ln -sfn $HOME/.dotfiles/dotfiles/bin $HOME/.bin
+
+# All done!
+echo -e "\n\nAll completed successfully!\nYou may need to restart the terminal once for everything to take effect"

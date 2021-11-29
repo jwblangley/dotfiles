@@ -1,0 +1,15 @@
+{
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "files.eol": "\n",
+    "editor.trimAutoWhitespace": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "editor.formatOnPaste": true,
+    "files.watcherExclude": {
+        "**/venv/**": true
+    },
+    "update.mode": "none",
+    "window.zoomLevel": -1
+}
