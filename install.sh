@@ -5,8 +5,9 @@ set -e
 
 # Prerequisites
 sudo apt update
-which wget || sudo apt install -y wget
 which git || sudo apt install -y git
+which curl || sudo apt install -y curl
+which wget || sudo apt install -y wget
 
 # Install zsh
 which zsh || sudo apt install -y zsh
@@ -34,6 +35,22 @@ which tmux || sudo apt install -y tmux
 
 # Install my tmux conf
 ln -sf $HOME/.dotfiles/dotfiles/.tmux.conf $HOME/.tmux.conf
+
+# Install micro text editor
+if [ ! $(which micro) ];
+then
+    pushd /tmp;
+    curl https://getmic.ro | bash;
+    sudo mv -n micro /usr/local/bin/micro;
+    popd;
+fi;
+
+# Install micro settings
+mkdir -p $HOME/.config/micro
+ln -sf $HOME/.dotfiles/dotfiles/micro_settings.json $HOME/.config/micro/settings.json
+
+# Install xclip
+which xclip || sudo apt install -y xclip
 
 # Install my custom scripts
 ln -sf $HOME/.dotfiles/dotfiles/bin $HOME/.bin
