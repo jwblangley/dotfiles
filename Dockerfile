@@ -9,7 +9,7 @@ RUN yes | unminimize
 
 # Install dependencies
 RUN apt-get update && \
-    apt-get install \
+    apt-get install -y \
         sudo \
     && rm -rf /var/lib/apt/lists/*
 
@@ -33,5 +33,5 @@ COPY . /home/$USERNAME/.dotfiles
 
 CMD cd .dotfiles && \
     ./install.sh && \
-    cd /home/$USERNAME && \
+    cd ~ && \
     zsh
