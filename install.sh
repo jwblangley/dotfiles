@@ -36,6 +36,9 @@ which tmux || sudo apt install -y tmux
 # Install my tmux conf
 ln -sf $HOME/.dotfiles/dotfiles/.tmux.conf $HOME/.tmux.conf
 
+# Install ncdu
+which ncdu || sudo apt install -y ncdu
+
 # Install micro text editor
 if [ ! $(which micro) ];
 then
