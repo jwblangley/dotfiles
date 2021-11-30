@@ -105,7 +105,7 @@ export VISUAL="$EDITOR"
 # clear shortcut
 alias c="clear"
 # Open file with default handler.
-alias o="xdg-open"
+alias o="open_command"
 # tmux shortcut
 alias t="tmux"
 # Add confirmation message to rm.
