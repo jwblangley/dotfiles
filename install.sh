@@ -13,7 +13,10 @@ command -v wget || sudo apt install -y wget
 command -v zsh || sudo apt install -y zsh
 
 # Make zsh the default shell
-if [ "$SHELL" != "$(command -v zsh)" ]; then chsh -s "$(command -v zsh)"; fi
+if [ "$SHELL" != "$(command -v zsh)" ]
+then
+    chsh -s "$(command -v zsh)"
+fi
 
 # Run oh-my-zsh installation (skip change of shell)
 ls "$HOME/.oh-my-zsh" || echo "n" | sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
@@ -40,13 +43,13 @@ ln -sf "$HOME/.dotfiles/dotfiles/.tmux.conf" "$HOME/.tmux.conf"
 command -v ncdu || sudo apt install -y ncdu
 
 # Install micro text editor
-if ! command -v micro;
+if ! command -v micro
 then
-    pushd /tmp;
-    curl https://getmic.ro | bash;
-    sudo mv -n micro /usr/local/bin/micro;
-    popd;
-fi;
+    pushd /tmp
+    curl https://getmic.ro | bash
+    sudo mv -n micro /usr/local/bin/micro
+    popd
+fi
 
 # Install micro settings
 mkdir -p "$HOME/.config/micro"
