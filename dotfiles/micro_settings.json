@@ -1,6 +1,5 @@
 {
     "colorscheme": "simple",
     "tabsize": 2,
-    "tabstospaces": true,
-    "eofnewline": true
+    "tabstospaces": true
 }
