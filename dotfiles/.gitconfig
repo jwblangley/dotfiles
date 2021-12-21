@@ -1,0 +1,3 @@
+[alias]
+	logdog = log --decorate --oneline --graph
+	root = rev-parse --show-toplevel

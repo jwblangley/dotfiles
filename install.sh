@@ -9,10 +9,6 @@ command -v git || sudo apt install -y git
 command -v curl || sudo apt install -y curl
 command -v wget || sudo apt install -y wget
 
-# git aliases
-git config --global alias.logdog "log --decorate --oneline --graph"
-git config --global alias.root "rev-parse --show-toplevel"
-
 # Install zsh
 command -v zsh || sudo apt install -y zsh
 
@@ -36,6 +32,9 @@ ln -sf "$HOME/.dotfiles/dotfiles/.zshrc" "$HOME/.zshrc"
 
 # Install my zsh theme
 ln -sf "$HOME/.dotfiles/dotfiles/jameslangley.zsh-theme" "${ZSH:-$HOME/.oh-my-zsh}/themes"
+
+# Install my global git config
+ln -sf "$HOME/.dotfiles/dotfiles/.gitconfig" "$HOME/.gitconfig"
 
 # Install tmux
 command -v tmux || sudo apt install -y tmux
