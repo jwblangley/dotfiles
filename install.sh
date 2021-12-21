@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # Exit on first failure
 set -e
@@ -8,6 +8,10 @@ sudo apt update -y
 command -v git || sudo apt install -y git
 command -v curl || sudo apt install -y curl
 command -v wget || sudo apt install -y wget
+
+# git aliases
+git config --global alias.logdog "log --decorate --oneline --graph"
+git config --global alias.root "rev-parse --show-toplevel"
 
 # Install zsh
 command -v zsh || sudo apt install -y zsh
