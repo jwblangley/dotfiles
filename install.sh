@@ -69,5 +69,8 @@ ln -sf "$HOME/.dotfiles/dotfiles/vscode_settings.json" "$HOME/.config/Code/User/
 # Install my custom scripts
 ln -sfn "$HOME/.dotfiles/dotfiles/bin" "$HOME/.bin"
 
+# Install my custom functions
+ln -sfn "$HOME/.dotfiles/dotfiles/func" "$HOME/.func"
+
 # All done!
 echo -e "\n\nAll completed successfully!\nYou may need to restart the terminal once for everything to take effect"
