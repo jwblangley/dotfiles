@@ -1,3 +1,5 @@
 [alias]
 	logdog = log --decorate --oneline --graph
 	root = rev-parse --show-toplevel
+[oh-my-zsh]
+	hide-dirty = 1
