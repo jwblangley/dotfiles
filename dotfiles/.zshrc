@@ -115,6 +115,8 @@ alias t="tmux"
 alias rm="rm -i"
 # Run full apt updating procedure and cleanup
 alias apt-full="sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean -y"
+# docker-compose shortcut - overrides /usr/bin/dc - desktop calculator
+alias dc=docker-compose
 
 # Load custom functions
 autoload -Uz $(ls $HOME/.func | xargs)
