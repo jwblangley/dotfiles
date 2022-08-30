@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+if [ "$#" -eq 0 ] || [ "$1" = "-h" ]
+then
+  echo "Usage: git addf <term> [term term...]"
+  echo
+  echo "Add any modified or untracked file or directory that contains the search term. One result per search term."
+  exit
+fi
+
+to_add=()
+
+for term in "$@"
+do
+  potential_files="$(git ls-files --modified --others --exclude-standard "$(git rev-parse --show-toplevel)" | grep "$term")"
+  if [ "$(echo "$potential_files" | wc -l)" -ne 1 ]
+  then
+    echo "Ambiguous term: \"$term\". Found:"
+    echo "$potential_files"
+    exit 1
+  fi
+  to_add+=("$potential_files")
+done
+
+printf "%s\n" "${to_add[@]}" | sort | uniq | xargs git add
