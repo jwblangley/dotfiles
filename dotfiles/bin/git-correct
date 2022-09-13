@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [ "$#" -ne 1 ] || [ "$1" = "-h" ]
+then
+  echo "Usage: git correct <ref>"
+  echo
+  echo "Correct the commit <ref> with staged changes by performing a rebase"
+  exit
+fi
+
+ref="$(git rev-parse $1)"
+git commit --fixup "$ref"
+GIT_SEQUENCE_EDITOR=: git rebase -i --autosquash "{$ref}~1"
