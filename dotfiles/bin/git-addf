@@ -12,14 +12,22 @@ to_add=()
 
 for term in "$@"
 do
-  potential_files="$(git ls-files --modified --others --exclude-standard "$(git rev-parse --show-toplevel)" | grep "$term")"
-  if [ "$(echo "$potential_files" | wc -l)" -ne 1 ]
+  potential_files="$(git ls-files --modified --others --exclude-standard "$(git rev-parse --show-toplevel)" | grep --ignore-case "$term")"  if [ "$(echo "$potential_files" | wc -l)" -ne 1 ]
   then
     echo "Ambiguous term: \"$term\". Found:"
     echo "$potential_files"
     exit 1
   fi
-  to_add+=("$potential_files")
+  if [ -n "$potential_files" ]
+  then
+    to_add+=("$potential_files")
+  fi
 done
+
+if [ "${#to_add[@]}" -eq 0 ]
+then
+  echo "No paths matched"
+  exit 2
+fi
 
 printf "%s\n" "${to_add[@]}" | sort | uniq | xargs git add
