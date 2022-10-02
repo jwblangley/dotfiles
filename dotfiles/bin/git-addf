@@ -12,7 +12,8 @@ to_add=()
 
 for term in "$@"
 do
-  potential_files="$(git ls-files --modified --others --exclude-standard "$(git rev-parse --show-toplevel)" | grep --ignore-case "$term")"  if [ "$(echo "$potential_files" | wc -l)" -ne 1 ]
+  potential_files="$(git ls-files --modified --others --exclude-standard "$(git rev-parse --show-toplevel)" | grep --ignore-case "$term")" 
+  if [ "$(echo "$potential_files" | wc -l)" -ne 1 ]
   then
     echo "Ambiguous term: \"$term\". Found:"
     echo "$potential_files"
