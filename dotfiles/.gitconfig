@@ -3,3 +3,5 @@
 	root = rev-parse --show-toplevel
 [oh-my-zsh]
 	hide-dirty = 1
+[pull]
+        ff = only
