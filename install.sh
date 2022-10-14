@@ -30,6 +30,9 @@ ls "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ||  git clone https
 # Install my zshrc
 ln -sf "$HOME/.dotfiles/dotfiles/.zshrc" "$HOME/.zshrc"
 
+# Install my aliases
+ln -sf "$HOME/.dotfiles/dotfiles/.zsh_aliases" "$HOME/.zsh_aliases"
+
 # Install my zsh theme
 ln -sf "$HOME/.dotfiles/dotfiles/jameslangley.zsh-theme" "${ZSH:-$HOME/.oh-my-zsh}/themes"
 

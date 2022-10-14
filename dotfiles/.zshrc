@@ -105,20 +105,7 @@ export VISUAL="$EDITOR"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# clear shortcut
-alias c="clear"
-# Open file with default handler.
-alias o="open_command"
-# tmux shortcut
-alias t="tmux"
-# Add confirmation message to rm.
-alias rm="rm -i"
-# Run full apt updating procedure and cleanup
-alias apt-full="sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean -y"
-# docker-compose shortcut - overrides /usr/bin/dc - desktop calculator
-alias dc=docker-compose
-# cd into new temp directory
-alias cdtmp="cd $(mktemp -d)"
+source "$HOME/.zsh_aliases"
 
 # Load custom functions
-autoload -Uz $(ls $HOME/.func | xargs)
+autoload -Uz $(ls "$HOME/.func" | xargs)
