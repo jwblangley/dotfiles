@@ -68,6 +68,8 @@ command -v xclip || sudo apt install -y xclip
 ls "$HOME/.config/Code/User" || mkdir -p "$HOME/.config/Code/User"
 ln -sf "$HOME/.dotfiles/dotfiles/vscode_keybindings.json" "$HOME/.config/Code/User/keybindings.json"
 ln -sf "$HOME/.dotfiles/dotfiles/vscode_settings.json" "$HOME/.config/Code/User/settings.json"
+rm -rf "$HOME/.config/Code/User/snippets"
+ln -sf "$HOME/.dotfiles/dotfiles/vscode_snippets" "$HOME/.config/Code/User/snippets"
 
 # Install my custom scripts
 ln -sfn "$HOME/.dotfiles/dotfiles/bin" "$HOME/.bin"
