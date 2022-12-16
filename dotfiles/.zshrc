@@ -3,9 +3,6 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.bin:/usr/local/bin:$PATH
 
-# Add custom functions to function path
-export FPATH=$HOME/.func:$FPATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -108,4 +105,7 @@ export VISUAL="$EDITOR"
 source "$HOME/.zsh_aliases"
 
 # Load custom functions
-autoload -Uz $(ls "$HOME/.func" | xargs)
+ls "$HOME/.func" | while read func
+do
+  source "$HOME/.func/$func"
+done
