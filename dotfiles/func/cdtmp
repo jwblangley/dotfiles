@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+function cdtmp() {
+  cd "$(mktemp -d -t $(whoami)_XXXXX)"
+}
+
+function lasttmp() {
+  tmpdir="${TMPDIR:-/tmp}"
+  cd "$tmpdir/$(ls -t "$tmpdir" | grep "$(whoami)" | head -n1)"
+}
