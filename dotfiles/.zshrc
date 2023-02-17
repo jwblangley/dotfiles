@@ -1,3 +1,6 @@
+# Runs for any interactive shell and should only contain config for this.
+# Runs after .zprofile for interactive shells
+
 # These are my preferred modifications to the original oh-my-zsh template.
 
 # Set name of the theme to load --- if set to "random", it will

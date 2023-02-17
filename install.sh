@@ -27,11 +27,20 @@ ls "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" || git clone https://gi
 # Clone zsh-syntx-highlighting external plugin
 ls "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ||  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 
+# Install my zshenv
+ln -sf "$HOME/.dotfiles/dotfiles/.zshenv" "$HOME/.zshenv"
+
+# Install my zprofile
+ln -sf "$HOME/.dotfiles/dotfiles/.zprofile" "$HOME/.zprofile"
+
 # Install my zshrc
 ln -sf "$HOME/.dotfiles/dotfiles/.zshrc" "$HOME/.zshrc"
 
-# Install my zshenv
-ln -sf "$HOME/.dotfiles/dotfiles/.zshenv" "$HOME/.zshenv"
+# Install my zlogin
+ln -sf "$HOME/.dotfiles/dotfiles/.zlogin" "$HOME/.zlogin"
+
+# Install my zlogout
+ln -sf "$HOME/.dotfiles/dotfiles/.zlogout" "$HOME/.zlogout"
 
 # Install my aliases
 ln -sf "$HOME/.dotfiles/dotfiles/.zsh_aliases" "$HOME/.zsh_aliases"
