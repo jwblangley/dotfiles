@@ -28,34 +28,34 @@ ls "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" || git clone https://gi
 ls "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ||  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 
 # Install my zshenv
-ln -sf "$HOME/.dotfiles/dotfiles/.zshenv" "$HOME/.zshenv"
+ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.zshenv"
 
 # Install my zprofile
-ln -sf "$HOME/.dotfiles/dotfiles/.zprofile" "$HOME/.zprofile"
+ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.zprofile"
 
 # Install my zshrc
-ln -sf "$HOME/.dotfiles/dotfiles/.zshrc" "$HOME/.zshrc"
+ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.zshrc"
 
 # Install my zlogin
-ln -sf "$HOME/.dotfiles/dotfiles/.zlogin" "$HOME/.zlogin"
+ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.zlogin"
 
 # Install my zlogout
-ln -sf "$HOME/.dotfiles/dotfiles/.zlogout" "$HOME/.zlogout"
+ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.zlogout"
 
 # Install my aliases
-ln -sf "$HOME/.dotfiles/dotfiles/.zsh_aliases" "$HOME/.zsh_aliases"
+ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.zsh_aliases"
 
 # Install my zsh theme
-ln -sf "$HOME/.dotfiles/dotfiles/jameslangley.zsh-theme" "${ZSH:-$HOME/.oh-my-zsh}/themes"
+ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/jameslangley.zsh-theme"
 
 # Install my global git config
-ln -sf "$HOME/.dotfiles/dotfiles/.gitconfig" "$HOME/.gitconfig"
+ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.gitconfig"
 
 # Install tmux
 command -v tmux || sudo apt install -y tmux
 
 # Install my tmux conf
-ln -sf "$HOME/.dotfiles/dotfiles/.tmux.conf" "$HOME/.tmux.conf"
+ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.tmux.conf"
 
 # Install ncdu
 command -v ncdu || sudo apt install -y ncdu
