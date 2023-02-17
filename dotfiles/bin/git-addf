@@ -8,11 +8,12 @@ then
   exit
 fi
 
+root="$(git rev-parse --show-toplevel)"
 to_add=()
 
 for term in "$@"
 do
-  potential_files="$(git ls-files --modified --others --exclude-standard "$(git rev-parse --show-toplevel)" | grep --ignore-case "$term")" 
+  potential_files="$(git ls-files --modified --others --exclude-standard --full-name "$root" | sort | uniq | grep --ignore-case "$term")"
   if [ "$(echo "$potential_files" | wc -l)" -ne 1 ]
   then
     echo "Ambiguous term: \"$term\". Found:"
@@ -21,7 +22,7 @@ do
   fi
   if [ -n "$potential_files" ]
   then
-    to_add+=("$potential_files")
+    to_add+=("$root/$potential_files")
   fi
 done
 
