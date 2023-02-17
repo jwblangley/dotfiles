@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Write to tty and stdout
+alias teety="tee /dev/tty"

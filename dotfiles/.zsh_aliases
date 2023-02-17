@@ -15,6 +15,3 @@ alias apt-full="sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove
 
 # docker-compose shortcut - overrides /usr/bin/dc - desktop calculator
 alias dc=docker-compose
-
-# Write to tty and stdout
-alias teety="tee /dev/tty"
