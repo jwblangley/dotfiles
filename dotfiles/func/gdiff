@@ -1,4 +1,0 @@
-#!/usr/bin/env zsh
-function gdiff () {
-    git diff --no-index "$@"
-}
