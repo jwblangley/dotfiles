@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if [ "$#" -ne 1 ] || [ "$1" = "-h" ]
+then
+  echo "Usage: toptrack <PID>"
+  echo
+  echo "Track the usage statistics of a process over time with 0.1 second intervals"
+  exit 1
+fi
+
+timeformat='"%Y-%m-%d %H:%M:%S"'
+top -b -d 0.1 -p "$1" | awk 'NR==7{print strftime('"$timeformat"'), $0}; $1=='"$1"'{print strftime('"$timeformat"'), $0; system("")}'
