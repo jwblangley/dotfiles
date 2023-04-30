@@ -10,4 +10,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/.bin:$PATH"
 
 # Rust
-. "$HOME/.cargo/env"
+if [ -f "$HOME/.cargo/env" ]
+then
+  . "$HOME/.cargo/env"
+fi
