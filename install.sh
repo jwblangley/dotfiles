@@ -46,7 +46,7 @@ ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.zlogout"
 ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.zsh_aliases"
 
 # Install my zsh theme
-ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/jameslangley.zsh-theme"
+ln -sf {"$HOME/.dotfiles/dotfiles","${ZSH:-$HOME/.oh-my-zsh}/themes"}"/jameslangley.zsh-theme"
 
 # Install my global git config
 ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.gitconfig"
