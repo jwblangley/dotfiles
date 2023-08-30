@@ -62,7 +62,13 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(z zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(
+  z
+  fzf
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  fzf-tab # Put last to allow previous bindings to also work
+)
 
 source $ZSH/oh-my-zsh.sh
 

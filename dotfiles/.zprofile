@@ -6,8 +6,11 @@ export PATH="/usr/local/bin:$PATH"
 # Path to oh-my-zsh installation
 export ZSH="$HOME/.oh-my-zsh"
 
-# Personal bin
+# Dotfiles bin
 export PATH="$HOME/.bin:$PATH"
+
+# Allow fzf CTRL+T command to include hidden files
+export FZF_CTRL_T_COMMAND="find ."
 
 # Rust
 if [ -f "$HOME/.cargo/env" ]

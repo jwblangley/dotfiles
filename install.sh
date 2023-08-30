@@ -22,10 +22,13 @@ fi
 ls "$HOME/.oh-my-zsh" || echo "n" | sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 # Clone zsh-autosuggestions external plugin
-ls "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" || git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+ls "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" || git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
 
 # Clone zsh-syntx-highlighting external plugin
-ls "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ||  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+ls "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ||  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+
+# Clone fzf-tab external plugin
+ls "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fzf-tab" ||  git clone https://github.com/Aloxaf/fzf-tab.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fzf-tab"
 
 # Install my zshenv
 ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.zshenv"
@@ -56,6 +59,9 @@ command -v tmux || sudo apt install -y tmux
 
 # Install my tmux conf
 ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.tmux.conf"
+
+# Install fzf
+command -v fzf || sudo apt install -y fzf
 
 # Install ncdu
 command -v ncdu || sudo apt install -y ncdu
