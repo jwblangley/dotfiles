@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+if [ "$#" -ne 0 ]
+then
+  echo "Usage: git addfzf"
+  echo
+  echo "Selectively add any modified or untracked file with fzf."
+  exit
+fi
+
+potential_files="$(git ls-files --modified --others --exclude-standard)"
+
+
+echo $potential_files | fzf --multi | xargs git add
