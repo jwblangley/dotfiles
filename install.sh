@@ -54,6 +54,9 @@ ln -sf {"$HOME/.dotfiles/dotfiles","${ZSH:-$HOME/.oh-my-zsh}/themes"}"/jameslang
 # Install my global git config
 ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.gitconfig"
 
+# Install my fzfignore
+ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.fzfignore"
+
 # Install tmux
 command -v tmux || sudo apt install -y tmux
 
