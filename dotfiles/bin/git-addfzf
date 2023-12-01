@@ -11,4 +11,4 @@ fi
 potential_files="$(git ls-files --modified --others --exclude-standard)"
 
 
-echo $potential_files | fzf --multi | xargs git add
+echo "$potential_files" | fzf --multi | xargs git add
