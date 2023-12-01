@@ -12,4 +12,4 @@ fi
 
 ref="$(git rev-parse $1)"
 git commit --fixup "$ref"
-GIT_SEQUENCE_EDITOR=: git rebase -i --autosquash "${ref}~1"
+GIT_SEQUENCE_EDITOR=: git rebase --interactive --autosquash "${ref}~1"
