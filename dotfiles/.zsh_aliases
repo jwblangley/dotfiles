@@ -14,7 +14,9 @@ alias rm="rm -i"
 alias apt-full="sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y && sudo apt autoclean -y"
 
 # docker-compose shortcut - overrides /usr/bin/dc - desktop calculator
-alias dc=docker-compose
+# To use latest docker compose
+# alias dc="docker compose"
+alias dc="docker-compose"
 
 # date & time
 alias today="date '+%Y-%m-%d'"
