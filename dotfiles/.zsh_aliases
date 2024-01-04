@@ -15,3 +15,8 @@ alias apt-full="sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove
 
 # docker-compose shortcut - overrides /usr/bin/dc - desktop calculator
 alias dc=docker-compose
+
+# date & time
+alias today="date '+%Y-%m-%d'"
+alias now="date '+%Y-%m-%d_%H:%M:%S:%3N'"
+alias timestamp="date '+%s'"
