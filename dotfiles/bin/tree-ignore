@@ -6,7 +6,7 @@ import os
 
 
 def tree(f, ignore_globs):
-  if any(fnmatch.fnmatch(f.path, g) for g in ignore_globs):
+  if any(fnmatch.fnmatch(os.path.basename(f.path), g) for g in ignore_globs):
     return
 
   print(f.path)
@@ -25,8 +25,8 @@ if __name__ == "__main__":
   args = parser.parse_args()
 
   ignore_globs = [
-    l.strip() if l.strip().startswith("./") else "./" + l.strip()
-    for l in args.ignore_file.readlines()
+    l.strip() for l in args.ignore_file.readlines()
+    if not l.strip.startswith("#")
   ]
 
   for f in os.scandir():
