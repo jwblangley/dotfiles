@@ -14,7 +14,15 @@ export FZF_DEFAULT_COMMAND="tree-ignore $HOME/.fzfignore"
 export FZF_CTRL_T_COMMAND="tree-ignore $HOME/.fzfignore"
 
 # Rust
-if [ -f "$HOME/.cargo/env" ]
+if [[ -f "$HOME/.cargo/env" ]]
 then
-  . "$HOME/.cargo/env"
+  source "$HOME/.cargo/env"
+fi
+
+# Pyenv
+if [[ -d "$HOME/.pyenv" ]]
+then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
 fi
