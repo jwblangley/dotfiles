@@ -10,6 +10,5 @@
     "files.watcherExclude": {
         "**/venv/**": true
     },
-    "update.mode": "none",
-    "window.zoomLevel": -1
+    "update.mode": "none"
 }
