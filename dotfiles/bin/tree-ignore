@@ -26,7 +26,7 @@ if __name__ == "__main__":
 
   ignore_globs = [
     l.strip() for l in args.ignore_file.readlines()
-    if not l.strip.startswith("#")
+    if not l.strip().startswith("#")
   ]
 
   for f in os.scandir():
