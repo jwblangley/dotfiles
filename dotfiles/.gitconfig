@@ -5,3 +5,9 @@
 	hide-dirty = 1
 [pull]
         ff = only
+[init]
+        defaultBranch = main
+[clean]
+        requireForce = false
+[core]
+        autocrlf = input
