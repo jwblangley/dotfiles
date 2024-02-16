@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [ "$#" -eq 0 ] || [ "$1" == "-h" ]
+then
+    echo "Usage: tail-last <dir> [grep arguments]"
+    echo "tail the most recently modified file within the <dir> directory, optionally filtering by additional grep arguments"
+    exit
+fi
+
+if ! [ -d "$1" ]
+then
+    echo "$1: No such directory"
+    exit 1
+fi
+
+fs="$(ls -t "$1")"
+if [ "$#" -gt 1 ]
+then
+    fs="$(echo "$fs" | grep "${@:2}")"
+fi
+
+tail --follow --lines +0 "$1/$(echo "$fs" | head -n 1)"
