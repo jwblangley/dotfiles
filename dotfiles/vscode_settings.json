@@ -7,7 +7,7 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "editor.formatOnPaste": true,
-    "editor.snippetSuggestions": "top"
+    "editor.snippetSuggestions": "top",
     "files.watcherExclude": {
         "**/venv/**": true
     },
