@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# All of these can be used with -d or --date for other times
+function today() {
+    date '+%Y-%m-%d' "$@"
+}
+
+function now() {
+    date '+%Y-%m-%d_%H:%M:%S:%3N' "$@"
+}
+
+function timestamp() {
+    date '+%s' "$@"
+}
+
+function micro-timestamp() {
+    date '+%s%6N' "$@"
+}
+
+# Except these
+function from-timestamp() {
+    now --date "@$1"
+}
+
+function from-micro-timestamp() {
+    now --date "@$(($1/1000000))"
+}
