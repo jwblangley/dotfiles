@@ -6,7 +6,7 @@
 [pull]
         ff = only
 [init]
-        defaultBranch = main
+	defaultBranch = main
 [clean]
         requireForce = false
 [core]
