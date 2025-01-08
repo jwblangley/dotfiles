@@ -3,3 +3,6 @@
 
 # Python
 .venv
+
+# Node
+node_modules
