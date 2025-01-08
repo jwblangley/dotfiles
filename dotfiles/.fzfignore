@@ -3,6 +3,8 @@
 
 # Python
 .venv
+venv
+__pycache__
 
 # Node
 node_modules
