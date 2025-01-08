@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-what_command() {
+what-command() {
     compgen -c | grep "$@"
 }
