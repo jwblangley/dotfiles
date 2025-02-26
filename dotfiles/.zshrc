@@ -95,6 +95,12 @@ export VISUAL="$EDITOR"
 export BAT_PAGER="less"
 export PAGER="batcat --plain --paging always"
 
+# Add autocompletions for delta
+if command -v delta &>/dev/null
+then
+    source <(delta --generate-completion zsh)
+fi
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 

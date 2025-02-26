@@ -4,10 +4,19 @@
 [oh-my-zsh]
 	hide-dirty = 1
 [pull]
-        ff = only
+    ff = only
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [clean]
-        requireForce = false
+    requireForce = false
 [core]
-        autocrlf = input
+    autocrlf = input
+    pager = delta --paging always
+[interactive]
+    diffFilter = delta --color-only
+[merge]
+    conflictstyle = zdiff3
+[delta]
+    line-numbers = true
+    side-by-side = true
+    hunk-header-style = omit

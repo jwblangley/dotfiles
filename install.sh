@@ -81,6 +81,11 @@ then
     popd
 fi
 
+if ! command -v delta
+then
+    echo "delta is not installed. See https://dandavison.github.io/delta/installation.html"
+fi
+
 # Install micro settings
 mkdir -p "$HOME/.config/micro"
 ln -sf "$HOME/.dotfiles/dotfiles/micro_settings.json" "$HOME/.config/micro/settings.json"
