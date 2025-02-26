@@ -69,6 +69,9 @@ command -v fzf || sudo apt install -y fzf
 # Install ncdu
 command -v ncdu || sudo apt install -y ncdu
 
+# Install bat
+command -v batcat || sudo apt install -y bat
+
 # Install micro text editor
 if ! command -v micro
 then

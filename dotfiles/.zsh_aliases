@@ -1,3 +1,6 @@
+# bat shortcut
+alias bat="batcat"
+
 # clear shortcut
 alias c="clear"
 

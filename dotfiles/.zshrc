@@ -91,6 +91,10 @@ fi
 
 export VISUAL="$EDITOR"
 
+# Set preferred pager
+export BAT_PAGER="less"
+export PAGER="batcat --plain --paging always"
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
