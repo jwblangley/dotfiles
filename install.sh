@@ -74,10 +74,11 @@ ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.tmux.conf"
 # Install micro text editor
 if ! command -v micro &>/dev/null
 then
-    pushd /tmp
-    curl https://getmic.ro | bash
-    sudo mv -n micro /usr/local/bin/micro
-    popd
+    echo "micro is not instaled >&2"
+    # See the following for instructions
+    # https://github.com/zyedidia/micro#installation
+    # Note that micro is packaged with ubuntu, but with 20.04 contains a bug
+    # In later versions of ubuntu this could be replaced with an install from apt
 fi
 
 # Install micro settings
