@@ -3,14 +3,24 @@
 # Exit on first failure
 set -e
 
-# Prerequisites
-sudo apt update -y
-command -v git &>/dev/null || sudo apt install -y git
-command -v curl &>/dev/null || sudo apt install -y curl
-command -v wget &>/dev/null || sudo apt install -y wget
+# Install packages
+function filter_has_apt() {
+    function _has_apt() {
+        if apt-cache show "$1" &>/dev/null
+        then
+            echo "$1"
+        else
+            echo "Could not find $1 to install with apt-get" >&2
+        fi
+    }
 
-# Install zsh
-command -v zsh &>/dev/null || sudo apt install -y zsh
+    export -f _has_apt
+    # shellcheck disable=SC2016 # "$1" should be passed as a raw string to "bash -c" to evaluate
+    xargs -P 0 -I {} bash -c '_has_apt "$1"' _ {}
+}
+
+
+filter_has_apt <"$(dirname "$0")/apt-installs.txt" | xargs sudo apt-get install --yes
 
 # Make zsh the default shell
 if [ "$SHELL" != "$(command -v zsh)" ]
@@ -58,20 +68,8 @@ ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.gitconfig"
 # Install my fzfignore
 ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.fzfignore"
 
-# Install tmux
-command -v tmux &>/dev/null || sudo apt install -y tmux
-
 # Install my tmux conf
 ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.tmux.conf"
-
-# Install fzf
-command -v fzf &>/dev/null || sudo apt install -y fzf
-
-# Install ncdu
-command -v ncdu &>/dev/null || sudo apt install -y ncdu
-
-# Install bat
-command -v batcat &>/dev/null || sudo apt install -y bat
 
 # Install micro text editor
 if ! command -v micro &>/dev/null
@@ -82,17 +80,9 @@ then
     popd
 fi
 
-if ! command -v delta &>/dev/null
-then
-    echo "delta is not installed. See https://dandavison.github.io/delta/installation.html"
-fi
-
 # Install micro settings
 mkdir -p "$HOME/.config/micro"
 ln -sf "$HOME/.dotfiles/dotfiles/micro_settings.json" "$HOME/.config/micro/settings.json"
-
-# Install xclip
-command -v xclip &>/dev/null || sudo apt install -y xclip
 
 # Install vscode configurations N.B: vscode installed separately
 test -d "$HOME/.config/Code/User" || mkdir -p "$HOME/.config/Code/User"
