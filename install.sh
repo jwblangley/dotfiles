@@ -41,35 +41,19 @@ test -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 test -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fzf-tab" ||  git clone https://github.com/Aloxaf/fzf-tab.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fzf-tab"
 
 
-# Install my zshenv
-ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.zshenv"
+# Install dotfiles with stow
+# N.B. The default stow directory is the current directory and the default target directory is its parent
 
-# Install my zprofile
-ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.zprofile"
+# Custom scripts and functions
+stow custom
 
-# Install my zshrc
-ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.zshrc"
+stow --no-folding zsh
+stow git
+stow fzf
+stow tmux
+stow --no-folding micro
+stow vscode
 
-# Install my zlogin
-ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.zlogin"
-
-# Install my zlogout
-ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.zlogout"
-
-# Install my aliases
-ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.zsh_aliases"
-
-# Install my zsh theme
-ln -sf {"$HOME/.dotfiles/dotfiles","${ZSH:-$HOME/.oh-my-zsh}/themes"}"/jameslangley.zsh-theme"
-
-# Install my global git config
-ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.gitconfig"
-
-# Install my fzfignore
-ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.fzfignore"
-
-# Install my tmux conf
-ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.tmux.conf"
 
 # Install micro text editor
 if ! command -v micro &>/dev/null
@@ -80,23 +64,6 @@ then
     # Note that micro is packaged with ubuntu, but with 20.04 contains a bug
     # In later versions of ubuntu this could be replaced with an install from apt
 fi
-
-# Install micro settings
-mkdir -p "$HOME/.config/micro"
-ln -sf "$HOME/.dotfiles/dotfiles/micro_settings.json" "$HOME/.config/micro/settings.json"
-
-# Install vscode configurations N.B: vscode installed separately
-test -d "$HOME/.config/Code/User" || mkdir -p "$HOME/.config/Code/User"
-ln -sf "$HOME/.dotfiles/dotfiles/vscode_keybindings.json" "$HOME/.config/Code/User/keybindings.json"
-ln -sf "$HOME/.dotfiles/dotfiles/vscode_settings.json" "$HOME/.config/Code/User/settings.json"
-rm -rf "$HOME/.config/Code/User/snippets"
-ln -sf "$HOME/.dotfiles/dotfiles/vscode_snippets" "$HOME/.config/Code/User/snippets"
-
-# Install my custom scripts
-ln -sfn "$HOME/.dotfiles/dotfiles/bin" "$HOME/.bin"
-
-# Install my custom functions
-ln -sfn "$HOME/.dotfiles/dotfiles/func" "$HOME/.func"
 
 # All done!
 echo -e "\n\nAll completed successfully!\nYou may need to restart the terminal once for everything to take effect"
