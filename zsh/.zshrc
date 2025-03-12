@@ -94,6 +94,7 @@ export VISUAL="$EDITOR"
 # Set preferred pager
 export BAT_PAGER="less"
 export PAGER="batcat --plain --paging always"
+export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | $PAGER --language man'"
 
 # Add autocompletions for delta
 if command -v delta &>/dev/null
