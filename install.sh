@@ -5,12 +5,12 @@ set -e
 
 # Prerequisites
 sudo apt update -y
-command -v git || sudo apt install -y git
-command -v curl || sudo apt install -y curl
-command -v wget || sudo apt install -y wget
+command -v git &>/dev/null || sudo apt install -y git
+command -v curl &>/dev/null || sudo apt install -y curl
+command -v wget &>/dev/null || sudo apt install -y wget
 
 # Install zsh
-command -v zsh || sudo apt install -y zsh
+command -v zsh &>/dev/null || sudo apt install -y zsh
 
 # Make zsh the default shell
 if [ "$SHELL" != "$(command -v zsh)" ]
@@ -18,17 +18,18 @@ then
     chsh -s "$(command -v zsh)"
 fi
 
-# Run oh-my-zsh installation (skip change of shell)
-ls "$HOME/.oh-my-zsh" || echo "n" | sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+# Run oh-my-zsh installation
+test -d "$HOME/.oh-my-zsh" || sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" "" --unattended
 
 # Clone zsh-autosuggestions external plugin
-ls "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" || git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+test -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" || git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
 
 # Clone zsh-syntx-highlighting external plugin
-ls "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ||  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+test -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" ||  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 
 # Clone fzf-tab external plugin
-ls "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fzf-tab" ||  git clone https://github.com/Aloxaf/fzf-tab.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fzf-tab"
+test -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fzf-tab" ||  git clone https://github.com/Aloxaf/fzf-tab.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fzf-tab"
+
 
 # Install my zshenv
 ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.zshenv"
@@ -58,22 +59,22 @@ ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.gitconfig"
 ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.fzfignore"
 
 # Install tmux
-command -v tmux || sudo apt install -y tmux
+command -v tmux &>/dev/null || sudo apt install -y tmux
 
 # Install my tmux conf
 ln -sf {"$HOME/.dotfiles/dotfiles","$HOME"}"/.tmux.conf"
 
 # Install fzf
-command -v fzf || sudo apt install -y fzf
+command -v fzf &>/dev/null || sudo apt install -y fzf
 
 # Install ncdu
-command -v ncdu || sudo apt install -y ncdu
+command -v ncdu &>/dev/null || sudo apt install -y ncdu
 
 # Install bat
-command -v batcat || sudo apt install -y bat
+command -v batcat &>/dev/null || sudo apt install -y bat
 
 # Install micro text editor
-if ! command -v micro
+if ! command -v micro &>/dev/null
 then
     pushd /tmp
     curl https://getmic.ro | bash
@@ -81,7 +82,7 @@ then
     popd
 fi
 
-if ! command -v delta
+if ! command -v delta &>/dev/null
 then
     echo "delta is not installed. See https://dandavison.github.io/delta/installation.html"
 fi
@@ -91,10 +92,10 @@ mkdir -p "$HOME/.config/micro"
 ln -sf "$HOME/.dotfiles/dotfiles/micro_settings.json" "$HOME/.config/micro/settings.json"
 
 # Install xclip
-command -v xclip || sudo apt install -y xclip
+command -v xclip &>/dev/null || sudo apt install -y xclip
 
 # Install vscode configurations N.B: vscode installed separately
-ls "$HOME/.config/Code/User" || mkdir -p "$HOME/.config/Code/User"
+test -d "$HOME/.config/Code/User" || mkdir -p "$HOME/.config/Code/User"
 ln -sf "$HOME/.dotfiles/dotfiles/vscode_keybindings.json" "$HOME/.config/Code/User/keybindings.json"
 ln -sf "$HOME/.dotfiles/dotfiles/vscode_settings.json" "$HOME/.config/Code/User/settings.json"
 rm -rf "$HOME/.config/Code/User/snippets"
