@@ -54,16 +54,5 @@ stow tmux
 stow --no-folding micro
 stow vscode
 
-
-# Install micro text editor
-if ! command -v micro &>/dev/null
-then
-    echo "micro is not instaled >&2"
-    # See the following for instructions
-    # https://github.com/zyedidia/micro#installation
-    # Note that micro is packaged with ubuntu, but with 20.04 contains a bug
-    # In later versions of ubuntu this could be replaced with an install from apt
-fi
-
 # All done!
 echo -e "\n\nAll completed successfully!\nYou may need to restart the terminal once for everything to take effect"
