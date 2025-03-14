@@ -20,3 +20,5 @@
     line-numbers = true
     side-by-side = true
     hunk-header-style = omit
+    max-line-length = 0
+    wrap-max-lines = unlimited
