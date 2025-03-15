@@ -29,7 +29,17 @@ then
 fi
 
 # Run oh-my-zsh installation
+if [ -f ~/zshrc ]
+then
+	_had_zshrc_before_omz_install="true"
+fi
 test -d "$HOME/.oh-my-zsh" || sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" "" --unattended
+# OMZ install will create a default zshrc which will clash with stow later
+if [ -z "$_had_zshrc_before_omz_install" ]
+then
+	rm "$HOME/.zshrc"
+fi
+
 
 # Clone zsh-autosuggestions external plugin
 test -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" || git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
