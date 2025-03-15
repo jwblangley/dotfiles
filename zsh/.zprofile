@@ -13,25 +13,8 @@ export PATH="$HOME/.bin:$PATH"
 export FZF_DEFAULT_COMMAND="tree-ignore $HOME/.fzfignore"
 export FZF_CTRL_T_COMMAND="tree-ignore $HOME/.fzfignore"
 
-# Rust
-if [[ -f "$HOME/.cargo/env" ]]
-then
-  source "$HOME/.cargo/env"
-fi
-
-# Pyenv
-if [[ -d "$HOME/.pyenv" ]]
-then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-fi
-
-# Node
-
-if [[ -d "$HOME/.nvm" ]]
-then
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-fi
+# Source shell setup for tools
+for f in "$HOME"/.zprofile.d/*
+do
+    source "$f"
+done
