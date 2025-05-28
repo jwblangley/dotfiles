@@ -22,3 +22,15 @@
     hunk-header-style = omit
     max-line-length = 0
     wrap-max-lines = unlimited
+    diff-so-fancy = true
+[branch]
+    sort = -committerdate
+[tag]
+    sort = version:refname
+[diff]
+    algorithm = histogram
+[rerere]
+    enabled = true
+    autoupdate = true
+[push]
+    autoSetupRemote = true
