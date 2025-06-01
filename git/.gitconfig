@@ -14,8 +14,6 @@
     pager = delta --paging always
 [interactive]
     diffFilter = delta --color-only
-[merge]
-    conflictstyle = zdiff3
 [delta]
     line-numbers = true
     side-by-side = true
