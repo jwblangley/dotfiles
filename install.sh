@@ -33,7 +33,7 @@ if [ -f ~/zshrc ]
 then
 	_had_zshrc_before_omz_install="true"
 fi
-test -d "$HOME/.oh-my-zsh" || ./install.sh --unattended
+test -d "$HOME/.oh-my-zsh" || ./install-ohmyzsh.sh --unattended
 # OMZ install will create a default zshrc which will clash with stow later
 if [ -z "$_had_zshrc_before_omz_install" ]
 then
