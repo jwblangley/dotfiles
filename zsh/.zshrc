@@ -77,6 +77,9 @@ source $ZSH/oh-my-zsh.sh
 # Disable auto pushd
 unsetopt autopushd
 
+# Use bash-like word splitting for consistency
+setopt shwordsplit
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
