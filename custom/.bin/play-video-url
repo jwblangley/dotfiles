@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+echo -n "URL: "
+read url
+
+cd "$(mktemp -d -t play-video-url_XXXXX)"
+
+python3.13 -m yt_dlp "$url" -o "out.%(ext)s" --exec "vlc {}"
+
+rm out.*
