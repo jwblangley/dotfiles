@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
-echo -n "URL: "
-read url
+if [ "$#" -eq 0 ]
+then
+    echo -n "URL: "
+    read url
+else
+    url="$1"
+fi
 
 cd "$(mktemp -d -t play-video-url_XXXXX)"
 
