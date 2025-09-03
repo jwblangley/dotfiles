@@ -29,7 +29,7 @@ then
 fi
 
 # Run oh-my-zsh installation
-if [ -f ~/zshrc ]
+if [ -f "$HOME/.zshrc" ]
 then
 	_had_zshrc_before_omz_install="true"
 fi
