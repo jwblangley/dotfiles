@@ -23,5 +23,5 @@ function from-timestamp() {
 }
 
 function from-micro-timestamp() {
-    now --date "@$(($1/1000000))"
+    now --date "@$(bc <<<"scale=6; $1/1000000")"
 }
