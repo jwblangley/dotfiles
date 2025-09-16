@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+edit-which() {
+    "$EDITOR" "$(type -a "$1" | grep --max-count=1 --only --extended-regex '\/.+$')"
+}
