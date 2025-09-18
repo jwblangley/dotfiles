@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+if [ "$#" -ne 1 ]
+then
+    echo "rename: Renames files with path mutation via sed expression"
+    echo
+    echo "Usage:"
+    echo "    rename <expression>"
+    exit 1
+fi
+
+while read -r path
+do
+     newPath="$(sed -e "$1" <<<"$path")"
+     if [ ! -f "$path" ] || [ "$path" = "$newPath" ]
+     then
+        continue
+    fi
+
+    mkdir --parents "$(dirname "$newPath")"
+    mv "$path" "$newPath"
+done
