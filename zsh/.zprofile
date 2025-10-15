@@ -10,8 +10,11 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/.bin:$PATH"
 
 # Use custom input for fzf
-export FZF_DEFAULT_COMMAND="tree-ignore $HOME/.fzfignore"
-export FZF_CTRL_T_COMMAND="tree-ignore $HOME/.fzfignore"
+export FZF_DEFAULT_COMMAND="rg --files --hidden --ignore-file $HOME/.rgignore"
+export FZF_CTRL_T_COMMAND="rg --files --hidden --ignore-file $HOME/.rgignore"
+
+# Use custom parameters for rg
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 # Source shell setup for tools
 for f in "$HOME"/.zprofile.d/*
