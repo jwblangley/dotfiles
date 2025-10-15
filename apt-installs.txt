@@ -2,14 +2,16 @@ at
 bat
 curl
 dnsutils
+fd-find
 fzf
 git
 git-delta
 htop
 jq
 micro
+neovim
 ncdu
-parallel
+ripgrep
 rsync
 shellcheck
 stow
