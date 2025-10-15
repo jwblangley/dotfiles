@@ -4,6 +4,9 @@ alias bat="batcat"
 # clear shortcut
 alias c="clear"
 
+# nvim shortcut
+alias v="nvim"
+
 # Open file with default handler.
 alias o="open_command"
 

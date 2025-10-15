@@ -58,11 +58,13 @@ test -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fzf-tab" ||  git clone h
 stow custom
 
 stow --no-folding zsh
+stow nvim
 stow git
 stow fzf
 stow tmux
 stow --no-folding micro
 stow --no-folding vscode
+
 
 # All done!
 echo -e "\n\nAll completed successfully!\nYou may need to restart the terminal once for everything to take effect"

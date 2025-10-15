@@ -77,8 +77,14 @@ source $ZSH/oh-my-zsh.sh
 # Disable auto pushd
 unsetopt autopushd
 
+# Disable auto cd
+unsetopt AUTO_CD
+
 # Use bash-like word splitting for consistency
 setopt shwordsplit
+
+# Disable terminal control flow
+stty -ixon
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -87,9 +93,9 @@ setopt shwordsplit
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='micro'
+  export EDITOR='nvim'
 else
-  export EDITOR='micro'
+  export EDITOR='nvim'
 fi
 
 export VISUAL="$EDITOR"
