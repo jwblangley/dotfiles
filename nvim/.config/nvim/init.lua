@@ -25,9 +25,6 @@ vim.o.undofile = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
--- Enable signcolumn (e.g. git +/- symbols)
-vim.o.signcolumn = "yes"
-
 -- Default new splits
 vim.o.splitright = true
 vim.o.splitbelow = true
@@ -61,5 +58,9 @@ vim.opt.linebreak = true
 -- Ensure posix trailing new line
 vim.opt.fixeol = true
 
+-- Plugin manager
+require("lazy-config")
+
 -- Keymaps
 require("keymaps")
+
