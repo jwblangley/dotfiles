@@ -58,6 +58,28 @@ vim.opt.linebreak = true
 -- Ensure posix trailing new line
 vim.opt.fixeol = true
 
+-- Check for external changes to file
+vim.api.nvim_create_autocmd({"FocusGained", "BufEnter", "CursorHold" ,"CursorHoldI"}, {
+    pattern = "*",
+    command = [[checktime]]
+})
+
+-- Prevent new lines after comments still being comments
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead", "BufWinEnter"}, {
+    pattern = "*",
+    command = [[set formatoptions-=r]]
+})
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead", "BufWinEnter"}, {
+    pattern = "*",
+    command = [[set formatoptions-=o]]
+})
+
+-- Trim trailing whitespace on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*",
+    command = [[%s/\s\+$//e]]
+})
+
 -- Plugin manager
 require("lazy-config")
 
