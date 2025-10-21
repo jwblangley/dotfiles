@@ -78,7 +78,7 @@ source $ZSH/oh-my-zsh.sh
 unsetopt autopushd
 
 # Disable auto cd
-unsetopt AUTO_CD
+unsetopt autocd
 
 # Use bash-like word splitting for consistency
 setopt shwordsplit
