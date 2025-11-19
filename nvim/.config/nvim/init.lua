@@ -52,11 +52,18 @@ vim.opt.shiftround = true
 -- Show matching brackets when creating them
 vim.opt.showmatch = true
 
--- Keep line indentatino on new line
+-- Keep line indentation when wrapping lines
 vim.opt.linebreak = true
 
 -- Ensure posix trailing new line
 vim.opt.fixeol = true
+
+-- Remove plugin language providers (add back when needed)
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_python_provider = 0
+vim.g.loaded_node_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
 
 -- Check for external changes to file
 vim.api.nvim_create_autocmd({"FocusGained", "BufEnter", "CursorHold" ,"CursorHoldI"}, {
