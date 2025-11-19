@@ -72,11 +72,11 @@ vim.api.nvim_create_autocmd({"FocusGained", "BufEnter", "CursorHold" ,"CursorHol
 })
 
 -- Prevent new lines after comments still being comments
-vim.api.nvim_create_autocmd({"BufNewFile", "BufRead", "BufWinEnter"}, {
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead", "BufWinEnter", "FileType", "BufEnter"}, {
     pattern = "*",
     command = [[set formatoptions-=r]]
 })
-vim.api.nvim_create_autocmd({"BufNewFile", "BufRead", "BufWinEnter"}, {
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead", "BufWinEnter", "FileType", "BufEnter"}, {
     pattern = "*",
     command = [[set formatoptions-=o]]
 })
