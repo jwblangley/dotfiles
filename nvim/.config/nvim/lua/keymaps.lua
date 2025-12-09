@@ -4,8 +4,8 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- Map <C-s> to save all to prevent muscle memory being annoying
 vim.keymap.set({"n", "i"}, "<C-s>", "<Esc><cmd>wall<CR>")
 
--- File explorer
-vim.keymap.set("n", "<leader>e", "<cmd>Explore<CR>", { desc = "Open file explorer" })
+-- Oil (file explorer)
+vim.keymap.set("n", "<leader>o", "<cmd>Oil<CR>", { desc = "Open Oil (file explorer)" })
 
 -- Telescope
 local builtin = require("telescope.builtin")
