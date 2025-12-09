@@ -9,6 +9,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # Dotfiles bin
 export PATH="$HOME/.bin:$PATH"
 
+# Snap bin
+export PATH="/snap/bin:$PATH"
+
 # Use custom input for fzf
 export FZF_DEFAULT_COMMAND="rg --files --hidden --ignore-file $HOME/.rgignore"
 export FZF_CTRL_T_COMMAND="rg --files --hidden --ignore-file $HOME/.rgignore"
