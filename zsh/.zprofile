@@ -12,6 +12,8 @@ export PATH="$HOME/.bin:$PATH"
 # Snap bin
 export PATH="/snap/bin:$PATH"
 
+# Additional bin
+export PATH="$HOME/.bin.other:$PATH"
 
 # Source shell setup for tools
 for f in "$HOME"/.zprofile.d/*
