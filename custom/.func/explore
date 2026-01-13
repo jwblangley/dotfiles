@@ -1,0 +1,23 @@
+#!/usr/bin/env zsh
+
+function explore() {
+    if [ "$#" -ne 1 ] || [ "$1" = "-h" ]
+    then
+        echo "Usage: explore <file>"
+        echo "Allows you to explore a file in real-time"
+        return
+    fi
+
+    local tools=(cat grep sed awk sort uniq jq wc)
+
+    local safe_bin_path="$(mktemp -d -t $(whoami)_safebin_XXXXX)"
+
+    for tool in $tools
+    do
+        ln -s "$commands[$tool]" "$safe_bin_path/$tool"
+    done
+
+    local preview_cmd="PATH=$safe_bin_path $commands[bash] -r -c 'cat $1 | "'eval "$0"'"' {q}"
+
+    print -z "cat $1 | $(echo "" | fzf --print-query --preview "$preview_cmd")"
+}
