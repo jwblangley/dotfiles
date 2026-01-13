@@ -1,0 +1,10 @@
+# Use custom parameters for rg
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
+# ripgreprc cannot use ~ or $HOME, so we have to hardcode it at zprofile time
+cat <<EOF >"$RIPGREP_CONFIG_PATH"
+--hidden
+--ignore-file=$HOME/.rgignore
+--smart-case
+EOF
+

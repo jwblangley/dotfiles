@@ -60,7 +60,7 @@ stow custom
 stow --no-folding zsh
 stow nvim
 stow git
-stow rg
+stow ripgrep
 stow tmux
 stow --no-folding micro
 stow --no-folding vscode
