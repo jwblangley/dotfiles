@@ -2,6 +2,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Allow use of full colours
+vim.opt.termguicolors = true
+
 -- Decrease update time
 vim.o.updatetime = 250
 
