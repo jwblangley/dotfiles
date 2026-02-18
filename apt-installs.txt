@@ -9,8 +9,8 @@ git-delta
 htop
 jq
 micro
-neovim
 ncdu
+neovim
 ripgrep
 rsync
 shellcheck
@@ -20,4 +20,5 @@ tree
 wbritish-huge
 wget
 xclip
+zoxide
 zsh
