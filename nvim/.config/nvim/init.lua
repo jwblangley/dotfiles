@@ -94,6 +94,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     end,
 })
 
+-- LSPs
+require("lsp")
+
 -- Plugin manager
 require("lazy-config")
 
