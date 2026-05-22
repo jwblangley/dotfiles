@@ -5,6 +5,8 @@
 ZSH_THEME="jameslangley"
 CASE_SENSITIVE="true"
 HIST_STAMPS="yyyy-mm-dd"
+HISTSIZE=50000
+SAVEHIST=50000
 
 plugins=(
   zoxide
