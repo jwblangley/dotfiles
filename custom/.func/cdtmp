@@ -6,5 +6,5 @@ function cdtmp() {
 
 function lasttmp() {
   tmpdir="${TMPDIR:-/tmp}"
-  cd "$tmpdir/$(ls -t "$tmpdir" | grep "$(whoami)" | head -n1)"
+  cd "$tmpdir/$(ls -t "$tmpdir" | grep "^$(whoami)" | head -n1)"
 }
