@@ -32,3 +32,6 @@
     autoupdate = true
 [push]
     autoSetupRemote = true
+[maintenance]
+    auto = true
+    strategy = incremental
