@@ -23,6 +23,11 @@ source $ZSH/oh-my-zsh.sh
 unsetopt autopushd
 unsetopt autocd
 setopt shwordsplit # Use bash-like word splitting for consistency
+setopt extendedhistory
+setopt histfindnodups
+setopt incappendhistory
+setopt histreduceblanks
+setopt histverify
 stty -ixon # Disable terminal control flow
 
 # Load aliases
