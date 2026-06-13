@@ -11,6 +11,7 @@ SAVEHIST=50000
 plugins=(
   zoxide
   fzf
+  gitfast
   zsh-autosuggestions
   fzf-tab # Put last to allow previous bindings to also work
   zsh-syntax-highlighting # Put last so colour escape sequences are not messed up
