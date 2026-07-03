@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+
+SAVE_FILE=""
+URLS=()
+
+while [ $# -gt 0 ]; do
+    case "$1" in
+        --save)
+            if [ -z "$2" ]; then
+                echo "Error: --save requires a filename."
+                exit 1
+            fi
+            SAVE_FILE="$2"
+            shift 2
+            ;;
+        --url)
+            if [ -z "$2" ]; then
+                echo "Error: --url requires a target link."
+                exit 1
+            fi
+            mapfile -t derived_urls < <(yt-dlp -g "$2")
+            URLS+=("${derived_urls[@]}")
+            shift 2
+            ;;
+        *)
+            URLS+=("$1")
+            shift
+            ;;
+    esac
+done
+
+if [[ ${#URLS[@]} -eq 0  || ${#URLS[@]} -gt 2 ]]
+then
+    echo "Usage: $(basename $0) [--save filename] [--url <video-url> | <stream_url_primary> <stream_url_secondary>]"
+    exit 1
+fi
+
+VLC_ARGS=(
+ "--adaptive-logic=highest"
+ "--network-caching=10000"
+ "--live-caching=10000"
+ "--http-reconnect"
+ "--sout-mux-caching=10000"
+)
+
+if [ -z "$SAVE_FILE" ]; then
+    if [[ ${#URLS[@]} -eq 1 ]]
+    then
+        set -x
+        vlc "${VLC_ARGS[@]}" "${URLS[0]}"
+    else
+        set -x
+        vlc "${VLC_ARGS[@]}" "${URLS[0]}" --input-slave="${URLS[1]}"
+    fi
+else
+    if [[ ${#URLS[@]} -eq 1 ]]
+    then
+        set -x
+        cvlc "${VLC_ARGS[@]}" "${URLS[@]}" --sout "#duplicate{dst=std{access=file,mux=ts,dst='${SAVE_FILE}.ts'}}" vlc://quit
+    else
+        set -x
+        cvlc "${VLC_ARGS[@]}" "${URLS[@]}" --input-slave="${URLS[1]}" --sout "#duplicate{dst=std{access=file,mux=ts,dst='${SAVE_FILE}.ts'}}" 'vlc://quit'
+    fi
+fi
