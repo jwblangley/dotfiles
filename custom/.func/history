@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+no-history() {
+    fc -p
+    HISTFILE=/dev/null
+    echo "zsh history recording is off"
+}
