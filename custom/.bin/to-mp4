@@ -1,3 +1,30 @@
 #!/usr/bin/env bash
 
-ffmpeg -i "$1" -c:v libx264 -crf 23 -pix_fmt yuv420p -movflags +faststart "$1.mp4"
+# Scale range: 0 to 51 (Lower = Higher Quality / Larger File Size)
+#
+# CRF 0     : Lossless compression (extremely large files, high CPU usage)
+# CRF 17-18 : Visually lossless (virtually identical to source, recommended for archiving)
+# CRF 19-21 : High quality (great balance for high-bitrate archival/playback)
+# CRF 22-24 : Standard default range (ideal balance of quality and file size for general streaming)
+# CRF 25-28 : Medium compression (noticeable drop in dark/fast scenes, good for file size savings)
+# CRF 29-35 : Low quality / High compression (visible artifacts, good for small preview files)
+# CRF 36+   : Very low quality (heavy compression blockiness, minimal file size)
+CRF="${CRF:-23}"
+
+# Controls encoding speed vs. compression efficiency (file size at a given quality level).
+# Slower presets = better compression (smaller file size for the same quality), but take longer.
+# Faster presets = faster encoding, but produce larger files for the same quality level.
+#
+# ultrafast : Fastest speed, largest file size (ideal for live capture/real-time encoding)
+# superfast : Very fast speed, minimal compression
+# veryfast  : Great for quick drafts and fast live streaming
+# faster    : Slight bump in efficiency over veryfast
+# fast      : Good option if you're short on time but need decent compression
+# medium    : The benchmark balance of encoding speed and file size
+# slow      : Recommended for high-quality final outputs (great balance of savings and speed)
+# slower    : Yields minor file size savings over 'slow', but significantly increases encode time
+# veryslow  : Maximum practical compression efficiency (best for archiving, very slow)
+# placebo   : Not recommended (negligible compression gains over 'veryslow', extremely slow)
+PRESET="${PRESET:-medium}"
+
+ffmpeg -i "$1" -c:v libx264 -crf "$CRF" -preset "$PRESET" -pix_fmt yuv420p -movflags +faststart "$1.mp4"
