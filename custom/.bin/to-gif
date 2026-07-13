@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# Target frames per second for the output
+FPS="${FPS:-15}"
+
+ffmpeg -i "$1" -vf "fps=${FPS},scale=trunc(iw/2)*2:trunc(ih/2)*2:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" "$1.gif"
