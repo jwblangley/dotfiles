@@ -103,3 +103,5 @@ require("lazy-config")
 -- Keymaps
 require("keymaps")
 
+-- Colour scheme: needs to go after plugin setup for external colour schemes
+vim.cmd.colorscheme "tokyonight-night"
