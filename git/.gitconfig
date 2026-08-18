@@ -12,6 +12,7 @@
 [core]
     autocrlf = input
     pager = delta --paging always
+    excludesfile = ~/.gitignore_global
 [interactive]
     diffFilter = delta --color-only
 [delta]
