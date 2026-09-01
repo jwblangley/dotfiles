@@ -23,9 +23,3 @@ alias apt-full="sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove
 # To use latest docker compose
 # alias dc="docker compose"
 alias dc="docker compose"
-
-# date & time
-alias today="date '+%Y-%m-%d'"
-alias now="date '+%Y-%m-%d_%H:%M:%S:%3N'"
-alias timestamp="date '+%s'"
-alias micro-timestamp="date '+%s%6N'"
