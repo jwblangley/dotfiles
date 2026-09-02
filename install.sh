@@ -63,6 +63,7 @@ stow git
 stow ripgrep
 stow tmux
 stow --no-folding micro
+stow --no-folding opencode
 stow --no-folding vscode
 
 
