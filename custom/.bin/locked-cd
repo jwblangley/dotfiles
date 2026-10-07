@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -e
+
+if [[ "$1" == "--lock" ]]
+then
+    shift
+    tar czf - "$1" | gpg --pinentry-mode loopback --symmetric --output "$1.tar.gz.gpg"
+    rm -rf "$1"
+    exit 0
+fi
+
+target="$(realpath "$1")"
+dir="$(mktemp -d -t lockdirXXXX)"
+echo "$dir"
+
+cd "$dir"
+
+onExit() {
+    rm -rf "$dir"
+}
+
+trap "onExit" EXIT
+
+gpg --pinentry-mode loopback --decrypt --output - "$target" | tar xz
+
+$SHELL -i
