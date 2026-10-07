@@ -10,9 +10,9 @@ then
 fi
 
 target="$(realpath "$1")"
-dir="$(mktemp -d -t lockdirXXXX)"
-echo "$dir"
 
+dir="$(mktemp -d -t lockdirXXXX)"
+chmod 700 "$dir"
 cd "$dir"
 
 onExit() {
