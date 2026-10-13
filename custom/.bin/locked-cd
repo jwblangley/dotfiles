@@ -4,7 +4,7 @@ set -e
 if [[ "$1" == "--lock" ]]
 then
     shift
-    tar czf - "$1" | gpg --pinentry-mode loopback --symmetric --output "$1.tar.gz.gpg"
+    tar czf - "$1" | gpg --pinentry-mode loopback --symmetric --output "$1.locked.tar.gz.gpg"
     rm -rf "$1"
     exit 0
 fi
