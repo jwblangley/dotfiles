@@ -36,11 +36,11 @@ then
 fi
 
 VLC_ARGS=(
- "--adaptive-logic=highest"
- "--network-caching=10000"
- "--live-caching=10000"
- "--http-reconnect"
- "--sout-mux-caching=10000"
+  "--demux=avformat"
+  "--adaptive-logic=highest"
+  "--network-caching=3000"
+  "--live-caching=3000"
+  "--http-reconnect"
 )
 
 if [ -z "$SAVE_FILE" ]; then
