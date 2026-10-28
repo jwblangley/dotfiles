@@ -67,7 +67,7 @@ stow gnome-exts
 # Install gnome extensions
 if command -v dconf
 then
-    ./install-gnome-exts.sh
+    ./install-gnome-exts.sh load
 fi
 
 

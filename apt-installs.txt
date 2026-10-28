@@ -10,6 +10,7 @@ htop
 jq
 ncdu
 neovim
+pipx
 ripgrep
 rsync
 shellcheck
