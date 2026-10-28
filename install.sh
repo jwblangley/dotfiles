@@ -62,8 +62,6 @@ stow nvim
 stow git
 stow ripgrep
 stow tmux
-stow --no-folding opencode
-stow --no-folding vscode
 stow gnome-exts
 
 # Install gnome extensions
