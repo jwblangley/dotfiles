@@ -64,6 +64,13 @@ stow ripgrep
 stow tmux
 stow --no-folding opencode
 stow --no-folding vscode
+stow gnome-exts
+
+# Install gnome extensions
+if command -v dconf
+then
+    ./install-gnome-exts.sh
+fi
 
 
 # All done!
